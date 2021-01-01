@@ -1,0 +1,71 @@
+/* 初始化 清除页面元素内外边距 */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* 弹性布局 让页面元素水平+垂直居中 */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: gray;
+}
+
+.container {
+  /* 这个父元素设置了弹性布局，就能让子元素水平排列了，原理是让子元素在主轴水平排列 */
+  /* 设置了弹性布局的盒子的子元素是可以直接设置宽和高的，就像这个a标签是行内元素，不转为块级元素无法设置宽和高，但是只要是弹性项目就可以 */
+  display: flex;
+  /* 改变主轴方向向下，元素就垂直排列了 */
+  flex-direction: column;
+}
+
+.container a {
+  /* 相对定位 子绝父相 */
+  position: relative;
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  margin: 50px;
+  font-size: 30px;
+  color: pink;
+  text-decoration: none;
+  border: 5px solid pink;
+  /* 定义四个盒子的颜色 */
+  /* 刚才定义的--i属性值可以通过var函数来调用 */
+  /* hue-rotate给图像应用色相旋转 */
+  filter: hue-rotate(calc(var(--i) * 90deg));
+}
+
+.container a::before,
+.container a::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 5px;
+  background-color: grey;
+  /* 倾斜 和skewX一样 */
+  transform: skew(50deg);
+  /* 过渡时间 */
+  transition: all 0.5s;
+}
+
+.container a::before {
+  top: -5px;
+  left: 10%;
+}
+
+.container a::after {
+  bottom: -5px;
+  right: 10%;
+}
+
+.container a:hover::before {
+  left: 80%;
+}
+
+.container a:hover::after {
+  right: 80%;
+}
