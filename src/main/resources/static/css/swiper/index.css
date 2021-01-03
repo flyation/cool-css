@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* 盒子模型 */
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 让页面始终占屏幕总高 */
+  height: 100vh;
+}
+.swiper {
+  position: relative;
+  width: 857px;
+  height: 441px;
+  overflow: hidden;
+}
+input {
+  display: none;
+}
+label {
+  position: absolute;
+  bottom: 30px;
+  left: calc(var(--i) * 5% + 30%);
+  width: 20px;
+  height: 20px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: white;
+}
+ul {
+  /* 让li水平排列 */
+  display: flex;
+  /* 自动计算宽度 */
+  width: calc(857px * 7);
+  /* 过渡时间 */
+  transition: all 0.5s;
+}
+li {
+  list-style-type: none;
+}
+
+#btn1:checked ~ ul {
+  margin-left: 0;
+}
+#btn2:checked ~ ul {
+  margin-left: -857px;
+}
+#btn3:checked ~ ul {
+  margin-left: calc(-857px * 2);
+}
+#btn4:checked ~ ul {
+  margin-left: calc(-857px * 3);
+}
+#btn5:checked ~ ul {
+  margin-left: calc(-857px * 4);
+}
+#btn6:checked ~ ul {
+  margin-left: calc(-857px * 5);
+}
+#btn7:checked ~ ul {
+  margin-left: calc(-857px * 6);
+}
+
+#btn1:checked ~ label[for="btn1"] {
+  background: pink;
+}
+#btn2:checked ~ label[for="btn2"] {
+  background: pink;
+}
+#btn3:checked ~ label[for="btn3"] {
+  background: pink;
+}
+#btn4:checked ~ label[for="btn4"] {
+  background: pink;
+}
+#btn5:checked ~ label[for="btn5"] {
+  background: pink;
+}
+#btn6:checked ~ label[for="btn6"] {
+  background: pink;
+}
+#btn7:checked ~ label[for="btn7"] {
+  background: pink;
+}
